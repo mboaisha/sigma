@@ -1,0 +1,38 @@
+title: Web Server on Linux launching a script
+id: ba64b153-2f76-459b-9766-a7fdc4462823
+status: experimental
+description: Detect shells spawned by web server
+author: Mohammad Boaisha
+date: 2022/3/4
+modified: 2022/3/4
+tags:
+    - attack.execution
+    - attack.persistence
+    - attack.t1505.003
+    - attack.t1059
+references:
+    - TBA
+logsource:
+    product: linux
+    service: httpd
+detection:
+    selection:
+        ParentImage|endswith:
+            - /httpd
+            - /nginx
+            - /apache
+            - /lighttpd
+        Image|contains:
+            - /bin/sh
+        CommandLine|contains:
+            - wget
+            - curl
+            - perl
+            - python
+            - python3
+            - sh -c
+    condition: 1 of ParentImage and Image and 2 of CommandLine
+falsepositives:
+    - Be wary of legitimate server-side scripts e.g. CGI
+level: high
+
