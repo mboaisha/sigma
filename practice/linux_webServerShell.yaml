@@ -1,7 +1,7 @@
 title: Web Server on Linux launching a script
 id: ba64b153-2f76-459b-9766-a7fdc4462823
 status: experimental
-description: Detect shells spawned by web server
+description: Detect shells spawned by web server as a result of reverse shell
 author: Mohammad Boaisha
 date: 2022/3/4
 modified: 2022/3/4
