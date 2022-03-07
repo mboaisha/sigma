@@ -4,14 +4,15 @@ status: experimental
 description: Detect shells spawned by web server as a result of reverse shell
 author: Mohammad Boaisha
 date: 2022/3/4
-modified: 2022/3/4
+modified: 2022/6/4
 tags:
     - attack.execution
     - attack.persistence
     - attack.t1505.003
     - attack.t1059
 references:
-    - TBA
+    - https://github.com/epinna/weevely3 # Example of a webshell that is capable of triggering this alert.
+    - 
 logsource:
     product: linux
     service: httpd
@@ -33,6 +34,6 @@ detection:
             - sh -c
     condition: 1 of ParentImage and Image and 2 of CommandLine
 falsepositives:
-    - Be wary of legitimate server-side scripts e.g. CGI
+    - Be wary of legitimate server-side scripts e.g. CGI or admin activity.
 level: high
 
