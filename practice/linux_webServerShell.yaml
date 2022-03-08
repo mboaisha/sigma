@@ -11,8 +11,7 @@ tags:
     - attack.t1505.003
     - attack.t1059
 references:
-    - https://github.com/epinna/weevely3 # Example of a webshell that is capable of triggering this alert.
-    - 
+    - https://github.com/epinna/weevely3 # Example of a webshell that is capable of triggering this rule.
 logsource:
     product: linux
     service: httpd
